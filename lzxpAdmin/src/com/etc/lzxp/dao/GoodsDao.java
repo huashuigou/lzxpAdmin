@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.etc.lzxp.entity.Goods;
 import com.etc.lzxp.entity.GoodsAndStype;
+import com.etc.lzxp.entity.Goods_stype;
 import com.etc.util.BaseDao;
 
 public class GoodsDao {
@@ -76,6 +77,15 @@ public class GoodsDao {
 	public boolean updateGoods(Goods goods) {
 		return BaseDao.execute(
 				"update Goods set goodsName=?,stypeId=?,goodsPrice=?,goodsContent=?,goodsStock=?goodsState=? where goodsId=?",goods.getGOODSNAME(),goods.getSTYPEID(),goods.getGOODSPRICE(),goods.getGOODSCONTENT(),goods.getGOODSSTOCK(),goods.getGOODSSTATE(),goods.getGOODSID()) > 0;
+	}
+	
+	
+	/**
+	 * 获取商品小类
+	 * @return
+	 */
+	public List<Goods_stype> getStype(){
+		return (List<Goods_stype>) BaseDao.select("select * from goods_stype", Goods_stype.class, null);
 	}
 
 }

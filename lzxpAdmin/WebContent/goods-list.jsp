@@ -183,12 +183,12 @@
 					<li><a href="#">交易记录管理</a></li>
 				</ul></li>
 
-			<!-- <li class="submenu"><a href="#"><i class="icon icon-th-list"></i>
+			<li class="submenu"><a href="#"><i class="icon icon-th-list"></i>
 					<span>评论管理</span></a>
 				<ul>
 					<li><a href="#">评论列表</a></li>
 					<li><a href="#">意见反馈</a></li>
-				</ul></li> -->
+				</ul></li>
 		</ul>
 	</div>
 
@@ -297,8 +297,11 @@
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="inputEmail3" class="col-md-3 control-label">类型编号：</label>
+										<label for="inputEmail3" class="col-md-3 control-label">商品小类：</label>
 										<div class="col-md-9">
+											<select>
+												<option></option>
+											</select>
 											<input type="text" class="form-control" id="stypeId"
 												name="stypeId" />
 										</div>
@@ -324,13 +327,7 @@
 												name="goodsStock" />
 										</div>
 									</div>
-									<div class="form-group">
-										<label for="inputEmail3" class="col-md-3 control-label">商品状态：</label>
-										<div class="col-md-9">
-											<input type="text" class="form-control" id="goodsState"
-												name="goodsState" />
-										</div>
-									</div>
+									
 
 									<div class="form-group">
 										<div class="col-sm-offset-3 col-sm-6">
