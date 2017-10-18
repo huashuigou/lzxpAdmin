@@ -1,16 +1,16 @@
 package com.etc.lzxp.entity;
 
 import java.io.Serializable;
+
 /**
- * 商品实体类
- * @author acer
- *
+ * @author Administrator
+ *Goods表和Goods_stype 的联合表 实体
  */
-public class Goods implements Serializable {
+public class GoodsAndStype implements Serializable{
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 169466162409890080L;
 	private int GOODSID;
 	private String GOODSNAME;
 	private int STYPEID;
@@ -18,11 +18,13 @@ public class Goods implements Serializable {
 	private String GOODSCONTENT;
 	private int GOODSSTOCK;
 	private int GOODSSTATE;
-	
-	
-
-	public Goods(int gOODSID, String gOODSNAME, int sTYPEID, double gOODSPRICE, String gOODSCONTENT, int gOODSSTOCK,
-			int gOODSSTATE) {
+	private int LTYPEID;//大类型id
+	private String STYPENAME;//小类型名
+	public GoodsAndStype() {
+		// TODO Auto-generated constructor stub
+	}
+	public GoodsAndStype(int gOODSID, String gOODSNAME, int sTYPEID, double gOODSPRICE, String gOODSCONTENT,
+			int gOODSSTOCK, int gOODSSTATE, int lTYPEID, String sTYPENAME) {
 		super();
 		GOODSID = gOODSID;
 		GOODSNAME = gOODSNAME;
@@ -31,12 +33,9 @@ public class Goods implements Serializable {
 		GOODSCONTENT = gOODSCONTENT;
 		GOODSSTOCK = gOODSSTOCK;
 		GOODSSTATE = gOODSSTATE;
+		LTYPEID = lTYPEID;
+		STYPENAME = sTYPENAME;
 	}
-	
-	public Goods() {
-		// TODO Auto-generated constructor stub
-	}
-	
 	public int getGOODSID() {
 		return GOODSID;
 	}
@@ -58,7 +57,6 @@ public class Goods implements Serializable {
 	public double getGOODSPRICE() {
 		return GOODSPRICE;
 	}
-	
 	public void setGOODSPRICE(double gOODSPRICE) {
 		GOODSPRICE = gOODSPRICE;
 	}
@@ -80,17 +78,27 @@ public class Goods implements Serializable {
 	public void setGOODSSTATE(int gOODSSTATE) {
 		GOODSSTATE = gOODSSTATE;
 	}
+	public int getLTYPEID() {
+		return LTYPEID;
+	}
+	public void setLTYPEID(int lTYPEID) {
+		LTYPEID = lTYPEID;
+	}
+	public String getSTYPENAME() {
+		return STYPENAME;
+	}
+	public void setSTYPENAME(String sTYPENAME) {
+		STYPENAME = sTYPENAME;
+	}
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
 	@Override
 	public String toString() {
-		return "Goods [GOODSID=" + GOODSID + ", GOODSNAME=" + GOODSNAME + ", STYPEID=" + STYPEID + ", GOODSPRICE="
-				+ GOODSPRICE + ", GOODSCONTENT=" + GOODSCONTENT + ", GOODSSTOCK=" + GOODSSTOCK + ", GOODSSTATE="
-				+ GOODSSTATE + "]";
+		return "GoodsAndStype [GOODSID=" + GOODSID + ", GOODSNAME=" + GOODSNAME + ", STYPEID=" + STYPEID
+				+ ", GOODSPRICE=" + GOODSPRICE + ", GOODSCONTENT=" + GOODSCONTENT + ", GOODSSTOCK=" + GOODSSTOCK
+				+ ", GOODSSTATE=" + GOODSSTATE + ", LTYPEID=" + LTYPEID + ", STYPENAME=" + STYPENAME + "]";
 	}
 	
 	
-
 }

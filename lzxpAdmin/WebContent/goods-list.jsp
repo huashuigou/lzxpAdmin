@@ -18,11 +18,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>系统后台</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 
 <script type="text/javascript" src="js/jquery-2.1.0.js"></script>
-<script src="js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/bootstrap.js" type="text/javascript" charset="utf-8"></script> -->
+
 
 <link rel="stylesheet" href="css/bootstrap.min.css" />
 <link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
@@ -31,7 +32,7 @@
 <link rel="stylesheet" href="css/unicorn.main.css" />
 <link rel="stylesheet" href="css/unicorn.grey.css" class="skin-color" /> 
 
- <script src="js/jquery.min.js"></script>
+ 	<script src="js/jquery.min.js"></script>
 	<script src="js/jquery.ui.custom.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.uniform.js"></script>
@@ -233,28 +234,25 @@
 									<tr>
 										<th><input type="checkbox"></th>
 										<th>商品名</th>
-										<th>类别编号</th>
+										<th>所属小类</th>
 										<th>商品价格</th>
 										<th>商品描述</th>
 										<th>商品库存</th>
-										<th>商品状态</th>
 									</tr>
 								</thead>
 								<tbody>
 
 									<c:if test="${requestScope.list!=null}">
-										<c:forEach items="${requestScope.list}" var="goods">
+										<c:forEach items="${requestScope.list}" var="goodsAndStype">
 
 											<tr class="gradeA">
-												<td><input type="checkbox" value="${goods.GOODSID}"
+												<td><input type="checkbox" value="${goodsAndStype.GOODSID}"
 													name="GOODSID"></td>
-												<td>${goods.GOODSNAME}</td>
-												<td>${goods.STYPEID}</td>
-												<td>${goods.GOODSPRICE}</td>
-												<td>${goods.GOODSCONTENT}</td>
-												<td>${goods.GOODSSTOCK}</td>
-												<td>${goods.GOODSSTATE}</td>
-												
+												<td>${goodsAndStype.GOODSNAME}</td>
+												<td>${goodsAndStype.STYPENAME}</td>
+												<td>${goodsAndStype.GOODSPRICE}</td>
+												<td>${goodsAndStype.GOODSCONTENT}</td>
+												<td>${goodsAndStype.GOODSSTOCK}</td>
 											</tr>
 										</c:forEach>
 									</c:if>
@@ -276,7 +274,7 @@
   <!-- 新增商品的模态框 （Modal） -->
 		<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 			aria-labelledby="myModalLabel" aria-hidden="true">
-			<div class="modal-dialog">
+			<!-- <div class="modal-dialog"> -->
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal"
@@ -347,11 +345,13 @@
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
 					</div>
+					
+					
 				</div>
 			</div>
 		</div>
 
-		<!-- 修改商品信息的 模态框（Modal） -->
+	 	<!-- 修改商品信息的 模态框（Modal） -->
 		<div class="modal fade" id="myModalUpdate" tabindex="-1" role="dialog"
 			aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
@@ -364,8 +364,8 @@
 					<div class="modal-body">
 
 						<div class="row clearfix">
-							<div class="col-md-12 column"></div>
-							<div class="col-md-12 column">
+							<div class="col-md-1 column"></div>
+							<div class="col-md-10 column">
 								<form class="form-horizontal myform" role="form" method="post">
 										<div class="form-group">
 										<label for="inputPassword3" class="col-md-3 control-label">商品名：</label>
@@ -425,6 +425,90 @@
 				</div>
 			</div>
 		</div>
+		
+		
+			<!-- 模态窗口 -->
+		<!-- 增加文章 -->
+		<%-- <div class="modal fade" id="myModalUpdate" role="dialog"
+			aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-hidden="true">×</button>
+					</div>
+					<h4 class="modal-title" id="myModalLabel">增加文章</h4>
+					<div class="modal-body">
+
+						<form class="form-horizontal" method="post"
+							action="${path}ArticleServlet?op=addArticle" role="form">
+							<div class="row clearfix">
+								<div class="col-sm-2"></div>
+								<div class="form-group">
+									<!-- 标题 -->
+									<label class="control-label col-sm-2">标题：</label>
+									<div class="col-sm-6">
+
+										<input type="text" class="form-control" name="newTitle" />
+									</div>
+								</div>
+								<div class="col-sm-2"></div>
+							</div>
+							<br />
+
+							<!-- 作者 -->
+							<div class="row clearfix">
+								<div class="col-sm-2"></div>
+								<div class="form-group">
+									<label class="control-label col-sm-2">作者：</label>
+									<div class="col-sm-6">
+
+										<input type="text" class="form-control" name="newName" />
+									</div>
+								</div>
+								<div class="col-sm-2"></div>
+							</div>
+							<br />
+							<div class="row clearfix">
+								<div class="col-sm-2"></div>
+								<div class="form-group">
+									<!-- 内容 -->
+									<label class="control-label col-sm-2">内容：</label>
+									<div class="col-sm-6">
+
+										<textarea class="form-control" name="newContent"></textarea>
+									</div>
+								</div>
+								<div class="col-sm-2"></div>
+							</div>
+
+							<!-- 日期 -->
+							<div class="row clearfix">
+								<div class="col-sm-2"></div>
+								<div class="form-group">
+									<label class="control-label col-sm-2">发布时间：</label>
+									<div class="col-sm-6">
+
+										<input type="date" class="form-control" name="newDate" />
+									</div>
+								</div>
+								<div class="col-sm-2"></div>
+							</div>
+					</div>
+					<div class="modal-footer">
+
+						<button type="submint" class="btn btn-primary">增加</button>
+					</div>
+					</form>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+	<div class="col-md-1 column"></div>
+	</div> --%>
+		
 
 </body>
 </html>

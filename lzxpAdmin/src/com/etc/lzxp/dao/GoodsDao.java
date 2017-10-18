@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.etc.lzxp.entity.Goods;
+import com.etc.lzxp.entity.GoodsAndStype;
 import com.etc.util.BaseDao;
 
 public class GoodsDao {
@@ -12,8 +13,8 @@ public class GoodsDao {
 	 * 
 	 * @return
 	 */
-	public List<Goods> getAllGoods() {
-		return (List<Goods>) BaseDao.select("select * from goods", Goods.class, null);
+	public List<GoodsAndStype> getAllGoods() {
+		return (List<GoodsAndStype>) BaseDao.select("select * from goods,goods_stype where goods.stypeid=goods_stype.stypeid", GoodsAndStype.class, null);
 	}
 
 	/**

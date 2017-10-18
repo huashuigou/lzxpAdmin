@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.etc.lzxp.entity.Goods;
+import com.etc.lzxp.entity.GoodsAndStype;
 import com.etc.lzxp.service.GoodsService;
 
 /**
@@ -34,7 +35,7 @@ public class GoodsServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		List<Goods> list =new ArrayList<Goods>();
+		List<GoodsAndStype> list =new ArrayList<GoodsAndStype>();
 		
 		if (request.getParameter("op") != null) {
 

@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.etc.lzxp.dao.GoodsDao;
 import com.etc.lzxp.entity.Goods;
+import com.etc.lzxp.entity.GoodsAndStype;
 
 public class GoodsService {
 	GoodsDao gd = new GoodsDao();
@@ -13,7 +14,7 @@ public class GoodsService {
 	 * 
 	 * @return
 	 */
-	public List<Goods> getAllGoods() {
+	public List<GoodsAndStype> getAllGoods() {
 		return gd.getAllGoods();
 	}
 
