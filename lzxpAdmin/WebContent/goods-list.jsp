@@ -18,10 +18,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>系统后台</title>
-<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 
-<script type="text/javascript" src="js/jquery-2.1.0.js"></script>
+<!-- <script type="text/javascript" src="js/jquery-2.1.0.js"></script>
 <script src="js/bootstrap.js" type="text/javascript" charset="utf-8"></script> -->
 
 
@@ -264,8 +264,7 @@
 			</div>
 
 			<div class="row-fluid">
-				<div id="footer" class="span12">版权所有 &copy; 2007-2017
-					零嘴小铺电子有限公司 闽ICP备14019087号</div>
+				<div id="footer" class="span12">版权所有 &copy; 2007-2017 零嘴小铺电子商务有限公司  闽ICP备15022981号</div>
 			</div>
 		</div>
 	</div>

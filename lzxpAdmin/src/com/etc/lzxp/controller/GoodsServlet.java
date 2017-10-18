@@ -52,11 +52,11 @@ public class GoodsServlet extends HttpServlet {
 				int stypeId = Integer.parseInt(request.getParameter("stypeId"));
 				double goodsPrice = Double.parseDouble(request.getParameter("goodsPrice"));
 				String goodsContent = request.getParameter("goodsContent");
-				int stypeStock = Integer.parseInt(request.getParameter("stypeStock"));
+				int goodsStock = Integer.parseInt(request.getParameter("goodsStock"));
 				int goodsState = Integer.parseInt(request.getParameter("goodsState"));
 
 				//得到一个goods对象
-				Goods goods = new Goods(0,goodsName, stypeId, goodsPrice, goodsContent,stypeStock,goodsState);
+				Goods goods = new Goods(0,goodsName, stypeId, goodsPrice, goodsContent,goodsStock,goodsState);
 				// 调用service的add方法
 				gs.addGoods(goods);
 
